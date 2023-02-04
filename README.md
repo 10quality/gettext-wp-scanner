@@ -6,8 +6,8 @@ The scanner is a PHP based same as the **gettext** package.
 
 **Coverage**
 
-* PHP translations.
-* JavaScript translations.
+- [x] PHP translations.
+- [ ] JavaScript translations.
 
 ## Installation
 
@@ -15,7 +15,7 @@ The scanner is a PHP based same as the **gettext** package.
 composer require 10quality/gettext-wp-scanner
 ```
 
-### PHP usage example
+## PHP usage example
 
 ```php
 use Gettext\Translations;
@@ -39,3 +39,7 @@ foreach ($phpScanner->getTranslations() as $domain => $translations) {
     $generator->generateFile($translations, "locales/{$domain}.po");
 }
 ```
+
+## License
+
+The MIT License (MIT). Please see `LICENSE` File for more information.
