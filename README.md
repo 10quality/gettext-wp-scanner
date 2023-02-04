@@ -40,6 +40,11 @@ foreach ($phpScanner->getTranslations() as $domain => $translations) {
 }
 ```
 
+## Requirements
+
+* [gettext/gettext](https://github.com/php-gettext/Gettext)
+* PHP >= 7.4.
+
 ## License
 
 The MIT License (MIT). Please see `LICENSE` File for more information.
