@@ -1,13 +1,12 @@
 # WordPress scanner for Gettext
 
+![Packagist Version](https://img.shields.io/packagist/v/10quality/gettext-wp-scanner)
+![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/10quality/gettext-wp-scanner/test.yml)
+![GitHub](https://img.shields.io/github/license/10quality/gettext-wp-scanner)
+
 WordPress code scanner to use with [gettext/gettext](https://github.com/php-gettext/Gettext).
 
 The scanner is a PHP based same as the **gettext** package.
-
-**Coverage**
-
-- [x] PHP translations.
-- [ ] JavaScript translations.
 
 ## Installation
 
@@ -39,6 +38,29 @@ foreach ($phpScanner->getTranslations() as $domain => $translations) {
     $generator->generateFile($translations, "locales/{$domain}.po");
 }
 ```
+
+## Coverage
+
+**Languages**
+
+- [x] PHP translations.
+- [ ] JavaScript translations.
+
+**PHP functions**
+
+- [x] `__()`
+- [x] `_e()`
+- [x] `_n()`
+- [x] `_n_noop()`
+- [x] `_x()`
+- [x] `_nx()`
+- [x] `_nx_noop()`
+- [x] `esc_attr__()`
+- [x] `esc_attr_e()`
+- [x] `esc_attr_x()`
+- [x] `esc_html__()`
+- [x] `esc_html_e()`
+- [x] `esc_html_x()`
 
 ## Requirements
 
