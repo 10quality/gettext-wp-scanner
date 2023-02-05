@@ -4,7 +4,7 @@ namespace TenQuality\Gettext\Tests;
 
 use Gettext\Translations;
 use PHPUnit\Framework\TestCase;
-use TenQuality\Gettext\Scanner\WPPhpScanner;
+use TenQuality\Gettext\Scanner\WPJsScanner;
 
 /**
  * Test case for scanner class.
@@ -14,7 +14,7 @@ use TenQuality\Gettext\Scanner\WPPhpScanner;
  * @license MIT
  * @version 1.0.0
  */
-class WPPhpScannerTest extends TestCase
+class WPJsPhpScannerTest extends TestCase
 {
     /**
      * Test class.
@@ -22,13 +22,13 @@ class WPPhpScannerTest extends TestCase
      * 
      * @test
      * @group scanner
-     * @group php
+     * @group js
      */
-    public function testWPPhpScanner()
+    public function testWPJsScanner()
     {
         // Prepare
-        $filename = __DIR__.'/assets/code.php';
-        $scanner = new WPPhpScanner(
+        $filename = __DIR__.'/assets/jscode.js';
+        $scanner = new WPJsScanner(
             Translations::create('domain1')
         );
         // Run
@@ -38,6 +38,6 @@ class WPPhpScannerTest extends TestCase
         $this->assertNotEmpty($translations);
         $this->assertCount(1, $translations);
         $this->assertNotEmpty($translations['domain1']);
-        $this->assertCount(15, $translations['domain1']);
+        $this->assertCount(4, $translations['domain1']);
     }
 }

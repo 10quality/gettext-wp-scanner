@@ -39,12 +39,37 @@ foreach ($phpScanner->getTranslations() as $domain => $translations) {
 }
 ```
 
+## JavaScript usage example
+
+```php
+use Gettext\Translations;
+use Gettext\Generator\PoGenerator;
+use TenQuality\Gettext\Scanner\WPJsScanner;
+
+// Create a new scanner, adding the plugin / theme domain we want to get:
+$phpScanner = new WPJsScanner(
+    Translations::create('my-domain')
+);
+
+// Scan PHP files
+foreach (glob('*.js') as $file) {
+    $phpScanner->scanFile($file);
+}
+
+//Save the translations in .po files
+$generator = new PoGenerator();
+
+foreach ($phpScanner->getTranslations() as $domain => $translations) {
+    $generator->generateFile($translations, "locales/{$domain}.po");
+}
+```
+
 ## Coverage
 
 **Languages**
 
-- [x] PHP translations.
-- [ ] JavaScript translations.
+- [x] PHP
+- [X] JavaScript
 
 **PHP functions**
 
@@ -62,10 +87,17 @@ foreach ($phpScanner->getTranslations() as $domain => $translations) {
 - [x] `esc_html_e()`
 - [x] `esc_html_x()`
 
+**JavaScript functions**
+
+- [x] `__()`
+- [x] `_x()`
+- [x] `_n()`
+- [x] `_nx()`
+
 ## Requirements
 
 * [gettext/gettext](https://github.com/php-gettext/Gettext)
-* PHP >= 7.4.
+* PHP >= 7.2.
 
 ## License
 

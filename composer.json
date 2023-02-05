@@ -21,7 +21,8 @@
     },
     "require": {
         "gettext/gettext": "^5.7",
-        "gettext/php-scanner": "^1.3"
+        "gettext/php-scanner": "^1.3",
+        "gettext/js-scanner": "^1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.6"

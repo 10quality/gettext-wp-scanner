@@ -4,6 +4,7 @@ namespace TenQuality\Gettext\Tests;
 
 use Gettext\Translations;
 use PHPUnit\Framework\TestCase;
+use TenQuality\Gettext\Scanner\WPJsScanner;
 use TenQuality\Gettext\Scanner\WPPhpScanner;
 
 /**
@@ -14,7 +15,7 @@ use TenQuality\Gettext\Scanner\WPPhpScanner;
  * @license MIT
  * @version 1.0.0
  */
-class WPPhpFunctionsHandlersTraitTest extends TestCase
+class WPFunctionsHandlersTraitTest extends TestCase
 {
     /**
      * Test class.
@@ -22,8 +23,9 @@ class WPPhpFunctionsHandlersTraitTest extends TestCase
      * 
      * @test
      * @group scanner
+     * @group php
      */
-    public function testScan()
+    public function testScanPhp()
     {
         // Prepare
         $filename = __DIR__.'/assets/code.php';
@@ -108,5 +110,44 @@ class WPPhpFunctionsHandlersTraitTest extends TestCase
         $this->assertEquals('last one', $translation->getOriginal());
         $this->assertNull($translation->getContext());
         $this->assertNull($translation->getPlural());
+    }
+    /**
+     * Test class.
+     * @since 1.0.0
+     * 
+     * @test
+     * @group scanner
+     * @group js
+     */
+    public function testScanJs()
+    {
+        // Prepare
+        $filename = __DIR__.'/assets/jscode.js';
+        $scanner = new WPJsScanner(
+            Translations::create('domain1')
+        );
+        // Run
+        $scanner->scanFile($filename);
+        $translations = $scanner->getTranslations()['domain1']->getTranslations();
+        // Assert translation 1
+        $translation = array_shift($translations);
+        $this->assertEquals('Single', $translation->getOriginal());
+        $this->assertNull($translation->getContext());
+        $this->assertNull($translation->getPlural());
+        // Assert translation 2
+        $translation = array_shift($translations);
+        $this->assertEquals('With context', $translation->getOriginal());
+        $this->assertEquals('The context.', $translation->getContext());
+        $this->assertNull($translation->getPlural());
+        // Assert translation 3
+        $translation = array_shift($translations);
+        $this->assertEquals('%s flower', $translation->getOriginal());
+        $this->assertNull($translation->getContext());
+        $this->assertEquals('%s flowers', $translation->getPlural());
+        // Assert translation 4
+        $translation = array_shift($translations);
+        $this->assertEquals('%s cup', $translation->getOriginal());
+        $this->assertEquals('Multiple cups.', $translation->getContext());
+        $this->assertEquals('%s cups', $translation->getPlural());
     }
 }

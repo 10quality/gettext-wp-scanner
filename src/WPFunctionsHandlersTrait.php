@@ -13,7 +13,7 @@ use Gettext\Translation;
  * @license MIT
  * @version 1.0.0
  */
-trait WPPhpFunctionsHandlersTrait
+trait WPFunctionsHandlersTrait
 {
     /**
      * Handles WordPress gettext.

@@ -17,7 +17,7 @@ use Gettext\Scanner\FunctionsScannerInterface;
  */
 class WPPhpScanner extends CodeScanner
 {
-    use WPPhpFunctionsHandlersTrait;
+    use WPFunctionsHandlersTrait;
 
     /**
      * Functions to scan in code.
