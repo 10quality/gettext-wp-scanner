@@ -18,12 +18,12 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.4'
-          extensions: mbstring, dom, curl, libxml  # Add any required extensions
-          tools: composer:v2
-          coverage: none  # Or 'pcov'/'xdebug' if you need code coverage
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.4'
+        extensions: mbstring, dom, curl, libxml  # Add any required extensions
+        tools: composer:v2
+        coverage: none  # Or 'pcov'/'xdebug' if you need code coverage
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
