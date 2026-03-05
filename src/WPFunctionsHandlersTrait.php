@@ -167,6 +167,6 @@ trait WPFunctionsHandlersTrait
         ?string $domain,
         ?string $context,
         string $original,
-        string $plural = null
+        ?string $plural = null
     ): ?Translation;
 }

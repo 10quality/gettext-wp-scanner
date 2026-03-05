@@ -2,17 +2,10 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   bootstrap="./vendor/autoload.php"
   colors="true"
-  convertErrorsToExceptions="true"
-  convertNoticesToExceptions="true"
-  convertWarningsToExceptions="true"
   stopOnFailure="true"
   xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
+  displayDetailsOnPhpunitDeprecations="true"
 >
-  <coverage processUncoveredFiles="true">
-    <include>
-      <directory suffix=".php">src</directory>
-    </include>
-  </coverage>
   <testsuites>
     <testsuite name="Tests">
       <directory>./tests/</directory>
