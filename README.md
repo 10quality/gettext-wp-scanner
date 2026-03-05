@@ -1,7 +1,7 @@
 # WordPress scanner for Gettext
 
 ![Packagist Version](https://img.shields.io/packagist/v/10quality/gettext-wp-scanner)
-![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/10quality/gettext-wp-scanner/test.yml)
+![GitHub Workflow Status (with branch)](https://img.shields.io/github/actions/workflow/status/10quality/gettext-wp-scanner/php.yml)
 ![GitHub](https://img.shields.io/github/license/10quality/gettext-wp-scanner)
 
 WordPress code scanner to use with [gettext/gettext](https://github.com/php-gettext/Gettext).
